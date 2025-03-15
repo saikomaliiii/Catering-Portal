@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Package - Vivaha Bhojanambu/Subbayya Gari Hotel</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        .header {
+            background-color: #ff5a5f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        /* Category Header */
+        .category-header {
+            font-size: 22px;
+            color: #ff5a5f;
+            margin: 20px 0 10px;
+            font-weight: bold;
+            border-bottom: 2px solid #ff5a5f;
+            padding-bottom: 5px;
+        }
+
+        /* Menu Card */
+        .menu-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 20px);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            font-size: 20px;
+            margin: 0;
+            color: #ff5a5f;
+        }
+
+        .menu-card .price {
+            font-size: 18px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Add Button */
+        .add-button {
+            background-color: #ff5a5f;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #ff3a3d;
+        }
+
+        /* Cart */
+        #cart {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #cart h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 18px;
+        }
+
+        #cart-items li {
+            padding: 5px 0;
+        }
+
+        #total {
+            font-size: 24px;
+            color: #ff5a5f;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    Vivaha Bhojanambu & Subbayya Gari Hotel - Basic Package
+</div>
+
+<div class="container">
+    <!-- Tiffins Section -->
+    <div class="category-header">Tiffins</div>
+    <div class="menu-card">
+        <div>
+            <h3>Idli</h3>
+            <div class="price">₹30</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Idli', 30)">+</button>
+    </div>
+    <div class="menu-card">
+        <div>
+            <h3>Vada</h3>
+            <div class="price">₹40</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Vada', 40)">+</button>
+    </div>
+    <div class="menu-card">
+        <div>
+            <h3>Upma</h3>
+            <div class="price">₹35</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Upma', 35)">+</button>
+    </div>
+    <div class="menu-card">
+        <div>
+            <h3>Puri</h3>
+            <div class="price">₹50</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Puri', 50)">+</button>
+    </div>
+    <div class="menu-card">
+        <div>
+            <h3>Mysore Bonda</h3>
+            <div class="price">₹45</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Mysore Bonda', 45)">+</button>
+    </div>
+
+    <!-- Lunch Section -->
+    <div class="category-header">Lunch</div>
+    <div class="menu-card">
+        <div>
+            <h3>Veg Meals</h3>
+            <div class="price">₹120</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Veg Meals', 120)">+</button>
+    </div>
+
+    <!-- Snacks Section -->
+    <div class="category-header">Snacks</div>
+    <div class="menu-card">
+        <div>
+            <h3>Tea</h3>
+            <div class="price">₹20</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Tea', 20)">+</button>
+    </div>
+    <div class="menu-card">
+        <div>
+            <h3>Biscuit</h3>
+            <div class="price">₹15</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Biscuit', 15)">+</button>
+    </div>
+
+    <!-- Dinner Section -->
+    <div class="category-header">Dinner</div>
+    <div class="menu-card">
+        <div>
+            <h3>Veg Meals</h3>
+            <div class="price">₹120</div>
+        </div>
+        <button class="add-button" onclick="addToCart('Veg Meals', 120)">+</button>
+    </div>
+
+    <!-- Cart Section -->
+    <div id="cart">
+        <h3>Your Cart</h3>
+        <ul id="cart-items"></ul>
+        <p>Total: ₹<span id="total">0</span></p>
+    </div>
+</div>
+  
+<div class="proceed-to-cart">
+    <a href="{{ url_for('cart') }}" class="proceed-to-cart-btn">Proceed to Cart</a>
+</div>
+
+<script>
+    let cart = {};
+    let total = 0;
+
+    function addToCart(item, price) {
+        if (cart[item]) {
+            cart[item].quantity += 1;
+        } else {
+            cart[item] = { price: price, quantity: 1 };
+        }
+        total += price;
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById("cart-items");
+        cartItems.innerHTML = "";
+
+        for (const [item, { price, quantity }] of Object.entries(cart)) {
+            const listItem = document.createElement("li");
+            listItem.innerText = `${item} - ₹${price} x ${quantity}`;
+            cartItems.appendChild(listItem);
+        }
+
+        document.getElementById("total").innerText = total;
+    }
+</script>
+
+</body>
+</html>
+
