@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5; /* Light background */
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #e63946; /* Zomato-like accent color */
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .price-quantity {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .remove-btn {
+            background-color: #ff5e57; /* Remove button color */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #ff3c3c;
+        }
+
+        .cart-summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .proceed-to-checkout-btn {
+            background-color: #e63946; /* Checkout button color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .proceed-to-checkout-btn:hover {
+            background-color: #d62839;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div class="cart-items">
+            <!-- Sample Cart Item -->
+            <div class="cart-item">
+                <img src="{{ url_for('static', filename='images/sample-food.jpg') }}" alt="Food Item">
+                <div class="item-details">
+                    <h2>Dish Name</h2>
+                    <p>Delicious description of the dish.</p>
+                    <div class="price-quantity">
+                        <span>Price: ₹100</span>
+                        <span>Quantity: <input type="number" value="1" min="1"></span>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+            <!-- Repeat for each item -->
+        </div>
+        <div class="cart-summary">
+            <h2>Summary</h2>
+            <p>Total: ₹<span id="total-price">300</span></p>
+            <a href="{{ url_for('cart_confirmation') }}" class="proceed-to-checkout-btn">Proceed to Checkout</a>
+        </div>
+    </div>
+</body>
+</html>

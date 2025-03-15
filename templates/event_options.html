@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Options</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ url_for("static", filename="event_options.jpg") }}');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff; /* Change to white for better visibility on dark background */
+            margin-bottom: 30px;
+        }
+
+        .event-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping to the next line if necessary */
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 15px;
+            overflow: hidden;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        .event-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #ff4b2b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff6f61;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select an Event</h1>
+        <div class="event-container">
+            {% for event in events %}
+                <div class="event-card">
+                    <img src="{{ url_for('static', filename=event.image) }}" alt="{{ event.name }}" class="event-image">
+                    <h2>{{ event.name }}</h2>
+                    <a href="{{ url_for('view_event_groups', event_type=event.name.lower().replace(' ', '')) }}" class="btn">View Groups</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

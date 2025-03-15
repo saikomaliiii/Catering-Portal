@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ group_name }} - {{ package_type.capitalize() }} Package</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ group_name }} - {{ package_type.capitalize() }} Package</h1>
+    <h2>Dishes</h2>
+    <ul>
+        {% for dish in dishes %}
+            <li>{{ dish.name }} - ₹{{ dish.price }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('select_package', group_id=1, group_name=group_name) }}">Back to Select Package</a>
+</body>
+</html>

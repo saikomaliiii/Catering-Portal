@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Options</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename=background_image) }}");
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .group-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+        }
+        .group-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% for group in groups %}
+        <div class="group-card">
+            <img src="{{ url_for('static', filename=group.image) }}" alt="{{ group.name }}">
+            <h3>{{ group.name }}</h3>
+            <a href="{{ url_for('select_package', group_id=group.id, event_type=event_type) }}">Select Package</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

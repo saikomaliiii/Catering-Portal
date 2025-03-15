@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Calculation</title>
+</head>
+<body>
+    <h1>Total Price Calculation</h1>
+    <h2>Total Price: ${{ total_price }}</h2>
+    <h3>Dishes Selected:</h3>
+    <ul>
+        {% for dish in dishes_selected %}
+            <li>{{ dish.name }} - ${{ dish.price }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if best_plate %}
+        <h3>Best Plate Suggestion: {{ best_plate.name }} - ${{ best_plate.price }}</h3>
+    {% endif %}
+</body>
+</html>

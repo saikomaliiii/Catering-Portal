@@ -1,0 +1,20 @@
+<body>
+    <div class="container">
+        <h1>Dishes for {{ group.name }}</h1>
+        <div class="dishes">
+            {% for dish in dishes %}
+                <div class="dish">
+                    <h2>{{ dish.name }}</h2>
+                    <p>Price: {{ dish.price }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename=background_image) }}");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</body>

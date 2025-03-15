@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>{{ group.name }} - Dishes</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename=background_image) }}");
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* Change text color for better visibility */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .dishes {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between dish items */
+        }
+        .dish {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2); /* Light background for dishes */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ group.name }} - Dishes</h1>
+        <div class="dishes">
+            {% for dish in dishes %}
+                <div class="dish">
+                    <h3>{{ dish.name }}</h3>
+                    <p>Price: ₹{{ dish.price }}</p>
+                </div>
+            {% else %}
+                <p>No dishes available for this group.</p>
+            {% endfor %}
+        </div>
+        <form action="{{ url_for('select_package', group_id=group.id) }}" method="POST">
+            <h2>Select Package</h2>
+            <select name="package">
+                <option value="basic">Basic</option>
+                <option value="premium">Premium</option>
+                <option value="custom">Custom</option>
+            </select>
+            <button type="submit">Proceed</button>
+        </form>
+    </div>
+</body>
+</html>

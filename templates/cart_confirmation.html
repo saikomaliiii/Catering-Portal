@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Confirmation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5; /* Light background */
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #e63946; /* Zomato-like accent color */
+        }
+
+        .confirmation-details {
+            margin-bottom: 20px;
+        }
+
+        .confirmation-details input {
+            padding: 5px;
+            margin: 5px 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .payment-methods button {
+            background-color: #e63946; /* Payment button color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .payment-methods button:hover {
+            background-color: #d62839;
+        }
+
+        .proceed-to-confirm-btn {
+            display: block;
+            background-color: #e63946; /* Confirm button color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin: 20px auto;
+            width: 200px;
+        }
+
+        .proceed-to-confirm-btn:hover {
+            background-color: #d62839;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cart Confirmation</h1>
+        <div class="confirmation-details">
+            <h2>Your Order</h2>
+            <p>Number of Plates: <input type="number" min="1" value="1"></p>
+            <p>Add Coupon: <input type="text" placeholder="Enter coupon code"></p>
+            <p>Total Amount: ₹<span id="total-amount">300</span></p>
+        </div>
+        <h2>Payment Options</h2>
+        <div class="payment-methods">
+            <button>Cash on Delivery</button>
+            <button>Debit Card</button>
+            <button>Online Payment</button>
+        </div>
+        <a href="{{ url_for('confirm_order') }}" class="proceed-to-confirm-btn">Confirm Order</a>
+    </div>
+</body>
+</html>
